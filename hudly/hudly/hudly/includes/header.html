@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hudly ~ Buy and sell products</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/product.css">
+    <link rel="stylesheet" href="./assets/fontawesome/css/all.css">
+    <script src="./assets/js/jquery.js"></script>
+</head>
+<body>
+
+<!--BEGINNING OF LOADING SCREEN-->
+<div class="loading-screen"><h6> <i class="fa fa-spinner fa-spin"></i> Loading....</h6></div>
+<!--END OF LOADING SCREEN-->
+
+<?php 
+if(isset($_SESSION['fullname'])) {
+    $topbar = "Welcome back";
+    $sd = $_SESSION['fullname'];
+} else {
+    $topbar = '<a href="#">LOGIN</a> / <a href="#">SIGN UP </a>';
+    $sd = "Account";
+}
+
+?>
+
+<!--BEGINNING OF HEADER-->
+
+<div class="header">
+    <div class="topbar">
+        Call: 0134567890
+
+        <div class="right">
+            <?php echo $topbar; ?>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <h6>Account</h6>
+        <hr>
+        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> <?php echo $sd; ?></a>
+        <a class="dropdown-item cart" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class=" fa fa-cart-shopping"></i> Cart</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-box"></i> Orders</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-envelope"></i> Inbox</a>
+        <a class="dropdown-item saveit111" href="#" data-bs-toggle="modal" data-bs-target="#saveModal"><i class="fa fa-heart"></i> Saved Items</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-ticket"></i> Voucher</a>
+        <hr>
+        <h6>Help</h6>
+        <hr>
+        <a class="dropdown-item" href="#"><i class="fa fa-question-circle"></i> Help Center</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-truck"></i> Place & track order</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-ban"></i> Order cancellation</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-arrow-rotate-left"></i> Return & Refunds</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-credit-card"></i> Payment & hudly account</a>
+
+        <div class="bottom">
+            <button class="logoutbtn11">Logout</button>
+        </div>
+    </div>
+
+    <div class="navbar">
+
+        <div class="logo"><h6>
+            <a href="#" type="button" id="navbar" >
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="#" id="navbar1">
+                <i class="fa fa-times"></i>
+            </a>
+            <a href="">HUDLY</a></h6></div>
+        
+        
+        <div class="cat">
+            <input type="search" name="" id="search" placeholder="Search Product in Brand">
+        </div>
+
+
+
+
+
+        <div class="end">
+
+            <div class="dropdown show">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-user"></i> <?php echo $sd; ?>
+                </a>
+            
+                <div class="dropdown-menu acc-menu" aria-labelledby="dropdownMenuLink" style="width: 10px;">
+                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> My Account</a>
+                <a class="dropdown-item" href="#"><i class="fa fa-box"></i> Orders</a>
+                <a class="dropdown-item" href="#"><i class="fa fa-envelope"></i> Inbox</a>
+                <a class="dropdown-item saveit111" href="#" data-bs-toggle="modal" data-bs-target="#saveModal"><i class="fa fa-heart"></i> Saved Items</a>
+                <a class="dropdown-item" href="#"><i class="fa fa-ticket"></i> Voucher</a>
+                <hr>
+                <center>
+                    <?php
+                        if(isset($_SESSION['email'])) {
+                            ?>
+                            <a class="dropdown-item logout logoutbtn11" href="#">Logout</a>
+                            <?php
+                        } else {
+                            ?>
+                            <a class="dropdown-item logout" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Login</a>
+                            <?php
+                        }
+                    ?>
+                </center>   
+            </div>
+            </div>
+
+
+            <div class="dropdown show">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-question-circle"></i> Help
+                </a>
+            
+                <div class="dropdown-menu menu3" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#"><i class="fa fa-question-circle"></i> Help Center</a>
+                    <a class="dropdown-item" href="#"> <i class="fa fa-truck"></i> Place & track order</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-ban"></i> Order cancellation</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-arrow-rotate-left"></i> Return & Refunds</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-credit-card"></i> Payment & hudly account</a>
+                <hr>
+                <center><button class="live-chat-btn"><i class="fa fa-comment"></i> Live Chat</button></center>
+            </div>
+            </div>
+                <a class="cart" id="cart" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                    <i class="fa fa-cart-shopping"></i> Cart
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<!--END OF HEADER-->

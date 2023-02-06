@@ -1,0 +1,9 @@
+RewriteEngine On
+
+Options -Indexes
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+RewriteRule ^store/([0-9a-z/-]+)$ store.php?id=$1 [L,QSA]
